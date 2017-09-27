@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Springmvc_mybatis</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- SpringMvc前端控制器 -->
+  <servlet>
+    <servlet-name>springmvc</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!-- contextConfigLocation配置springmvc加载配置文件（配置处理器映射器、适配器等）
+    	如果不配置，默认加载：/WEB-INF/servlet名称-servlet.xml(springmvc-servlet.xml) -->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>
+      		classpath:spring/spring-mvc.xml
+      </param-value>
+    </init-param>
+    <!-- <load-on-startup>1</load-on-startup> -->
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>springmvc</servlet-name>
+    <!-- 
+    	第一种：*.action，访问以.action结尾由DispatcherServlet进行解析
+    	第二种：/，所有访问地址都由DispatcherServlet解析，对于静态文件的解析不让DispatcherServlet解析的地址，
+    		这种方式可实现Restful风格的URL，针对图片、css路径的访问也会拦截，需要重新定向地址。
+    	第三种：/*，配置不对，这种配置最终要求转发到JSP页面时，仍然由DispatcherServlet解析JSP地址，
+    		不能根据JSP页面找到handler，会报错。
+     -->
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <!-- 防止出现中文乱码 -->
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>characterEncodingFilter</filter-name>
+    <url-pattern>*.do</url-pattern>
+  </filter-mapping>
+  <!-- 声明监听器：配置除SpringMvc外的文件 -->
+  <context-param>
+  	  <param-name>contextConfigLocation</param-name>
+      <param-value>
+      		classpath:spring/applicationContext*.xml
+      </param-value>
+  </context-param>
+  <listener>
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <!-- 配置logback相关  -->
+ <!--  <context-param>
+  	<param-name>logbackConfigLocation</param-name>
+  	<param-value>classpath:logback.xml</param-value>
+  </context-param>
+  <listener>
+  	<listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>
+  </listener> -->
+</web-app>

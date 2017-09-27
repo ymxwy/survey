@@ -1,0 +1,17 @@
+解释文本：
+	login.jsp：为登录页面aaa
+	survey.sql：为数据库代码（还为修改成功）
+	survey_dictionary.doc：为数据库字典（打开方式：右键'open with'-->'Other'-->选择'Microsoft Word 模板'）
+	js：存放js文件
+	images：存放相关图片
+	css：存放css文件
+	WEB-INF：
+		survey:（存放问卷页面信息）
+			survey_design：（存放问卷设计页面）
+				survey.jsp：问卷编辑页面，编辑问卷信息
+			survey_statistice:（存放问卷调查统计数据页面）
+				statistice.jsp：问卷调查统计数据页面
+			survey_home:（存放问卷调查首页的页面，包括用户设计和用户信息修改相关页面）
+				list.jsp：问卷首页，显示用户所有问卷信息
+				
+			

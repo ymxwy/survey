@@ -1,0 +1,16 @@
+<configuration debug="false">
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>D:/Youxun/springmvctest.log</File>
+		<encoder>
+			<Pattern>%d %5p [%t] %c:%L - %m%n</Pattern>
+		</encoder><!-- 两个class名称建议在jar包下找到并复制进来，免得出错 -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>D:/Youxun/springmvctest.log.%d{yyyy-MM-dd}.gz</FileNamePattern>
+		</rollingPolicy>
+	</appender>
+	<root level="debug">
+		<appender-ref ref="FILE"/>
+	</root>
+	<logger name="cn.ssm.controller" level="debug"/>
+	<logger name="org" level="error"/>
+</configuration>
