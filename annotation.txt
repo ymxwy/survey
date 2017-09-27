@@ -1,0 +1,15 @@
+src/main/java 产生的java代码
+
+src/main/resources 生产配置文件 比如spring.xml
+
+src/test/java 测试的java代码
+
+Maven Dependencies 引用项目中jar包	
+
+/maven/src/main/webapp web相关的文件 视图 静态资源 web.xml文件等
+
+/maven/src/test 测试用的配置文件
+
+target 编译之后的文件
+
+/maven/pom.xml 引导jar包的配置文件
