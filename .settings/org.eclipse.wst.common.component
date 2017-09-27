@@ -5,6 +5,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <property name="java-output-path" value="/Springmvc_mybatis2_maven/target/classes"/>
-        <property name="context-root" value="maventest"/>
+        <property name="context-root" value="dwsurvey"/>
     </wb-module>
 </project-modules>
